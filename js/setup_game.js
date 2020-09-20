@@ -1,4 +1,10 @@
-/* eslint-disable no-unused-vars */
+/* exported fireballSize */
+/* exported getFireballSpeed */
+/* exported wizardSpeed */
+/* exported getWizardHeight */
+/* exported getWizardX */
+/* exported getWizardY */
+
 "use strict";
 
 const fireballSize = 22;
