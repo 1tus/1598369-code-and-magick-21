@@ -1,9 +1,9 @@
 'use strict';
 
-let fireballSize = 22;
-let getFireballSpeed = (isMovingLeft) => isMovingLeft ? 2 : 5;
-let wizardSpeed = 3;
-let wizardWidth = 70;
-let getWizardHeight = () => 1.337 * wizardWidth;
-let getWizardX = (gameFieldWidth) => (gameFieldWidth - wizardWidth) / 2;
-let getWizardY = (gameFieldHeight) => gameFieldHeight / 3;
+const fireballSize = 22;
+const getFireballSpeed = (isMovingLeft) => isMovingLeft ? 2 : 5;
+const wizardSpeed = 3;
+const wizardWidth = 70;
+const getWizardHeight = () => 1.337 * wizardWidth;
+const getWizardX = (gameFieldWidth) => (gameFieldWidth - wizardWidth) / 2;
+const getWizardY = (gameFieldHeight) => gameFieldHeight / 3;

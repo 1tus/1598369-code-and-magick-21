@@ -6,24 +6,24 @@ const WIZARD_COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146,
 const WIZARD_EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 const WIZARDS_LENGTH = 4;
 
-let userDialog = document.querySelector('.setup');
+const userDialog = document.querySelector('.setup');
 userDialog.classList.remove('hidden');
-let similarListElement = document.querySelector('.setup-similar-list');
-let similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
+const similarListElement = document.querySelector('.setup-similar-list');
+const similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
-let getRandomInt = (min, max) => {
+const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-let getRandomBoolean = () => {
+const getRandomBoolean = () => {
   return Boolean(Math.round(Math.random()));
 };
 
-let getRandomArrElement = (arr) => {
+const getRandomArrElement = (arr) => {
   return arr[getRandomInt(0, arr.length)];
 };
 
-let getNewWizard = () => {
+const getNewWizard = () => {
   let nameSwap = getRandomArrElement(WIZARD_NAMES) + ' ' + getRandomArrElement(WIZARD_SURNAMES);
   if (getRandomBoolean()) {
     nameSwap = getRandomArrElement(WIZARD_SURNAMES) + ' ' + getRandomArrElement(WIZARD_NAMES);
@@ -35,13 +35,13 @@ let getNewWizard = () => {
   };
 };
 
-let wizards = [];
+const wizards = [];
 for (let i = 0; i < WIZARDS_LENGTH; i++) {
   wizards[i] = getNewWizard();
 }
 
-let renderWizard = (wizard) => {
-  let wizardElement = similarWizardTemplate.cloneNode(true);
+const renderWizard = (wizard) => {
+  const wizardElement = similarWizardTemplate.cloneNode(true);
 
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
@@ -50,7 +50,7 @@ let renderWizard = (wizard) => {
   return wizardElement;
 };
 
-let fragment = document.createDocumentFragment();
+const fragment = document.createDocumentFragment();
 
 for (let i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
