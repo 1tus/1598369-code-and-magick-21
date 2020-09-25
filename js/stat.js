@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const CLOUD_WIDTH = 420;
 const CLOUD_HEIGHT = 270;
@@ -23,7 +23,7 @@ const BAR_Y_BOTTOM = PLAYER_NAME_Y - NAME_HEIGHT;
 const TIMES_Y_WITHOUTBAR = BAR_Y_BOTTOM - TIMES_GAP_Y;
 const MAX_BAR_HEIGHT = 150;
 
-const renderCloud = (ctx, x, y, color) => {
+let renderCloud = (ctx, x, y, color) => {
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.moveTo(x, y);
@@ -46,7 +46,7 @@ window.renderStatistics = (ctx, players, times) => {
   ctx.fillText('Ура вы победили!', CLOUD_TEXT_X, CLOUD_TEXT_Y);
   ctx.fillText('Список результатов:', CLOUD_TEXT_X, CLOUD_TEXT_Y + CLOUD_TEXT_HEIGHT);
 
-  const getMaxElement = (arr) => {
+  let getMaxElement = (arr) => {
     if (arr.length === 0) {
       return false;
     } else {
@@ -60,19 +60,19 @@ window.renderStatistics = (ctx, players, times) => {
     }
   };
 
-  const MAX_TIME = getMaxElement(times);
-  const BAR_HEIGTH = [];
+  let maxTime = getMaxElement(times);
+  let barHeight = [];
 
   for (let i = 0; i < players.length; i++) {
-    BAR_HEIGTH[i] = Math.round(times[i] * MAX_BAR_HEIGHT / MAX_TIME);
+    barHeight[i] = Math.round(times[i] * MAX_BAR_HEIGHT / maxTime);
     ctx.fillStyle = '#000';
     ctx.fillText(players[i], FIRST_PLAYER_X + BAR_X_GAP * i, PLAYER_NAME_Y);
-    ctx.fillText(Math.round(times[i]), FIRST_PLAYER_X + BAR_X_GAP * i, TIMES_Y_WITHOUTBAR - BAR_HEIGTH[i]);
+    ctx.fillText(Math.round(times[i]), FIRST_PLAYER_X + BAR_X_GAP * i, TIMES_Y_WITHOUTBAR - barHeight[i]);
     if (players[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = `hsl(240, ${Math.round(Math.random() * 100)}%, 50%)`;
     }
-    ctx.fillRect(FIRST_PLAYER_X + BAR_X_GAP * i, BAR_Y_BOTTOM - BAR_HEIGTH[i], BAR_WIDTH, BAR_HEIGTH[i]);
+    ctx.fillRect(FIRST_PLAYER_X + BAR_X_GAP * i, BAR_Y_BOTTOM - barHeight[i], BAR_WIDTH, barHeight[i]);
   }
 };
