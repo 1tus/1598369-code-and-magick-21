@@ -20,7 +20,7 @@ const getRandomBoolean = () => {
 };
 
 const getRandomArrElement = (arr) => {
-  return arr[getRandomInt(0, arr.length)];
+  return arr[getRandomInt(0, arr.length - 1)];
 };
 
 const getNewWizard = () => {
@@ -34,6 +34,8 @@ const getNewWizard = () => {
     eyesColor: getRandomArrElement(WIZARD_EYES_COLORS)
   };
 };
+
+console.log(getRandomArrElement(WIZARD_EYES_COLORS));
 
 const wizards = [];
 for (let i = 0; i < WIZARDS_LENGTH; i++) {
