@@ -35,8 +35,6 @@ const getNewWizard = () => {
   };
 };
 
-console.log(getRandomArrElement(WIZARD_EYES_COLORS));
-
 const wizards = [];
 for (let i = 0; i < WIZARDS_LENGTH; i++) {
   wizards[i] = getNewWizard();
