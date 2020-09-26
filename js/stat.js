@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const CLOUD_WIDTH = 420;
 const CLOUD_HEIGHT = 270;
@@ -60,19 +60,18 @@ window.renderStatistics = (ctx, players, times) => {
     }
   };
 
-  const MAX_TIME = getMaxElement(times);
-  const BAR_HEIGTH = [];
+  const maxTime = getMaxElement(times);
 
   for (let i = 0; i < players.length; i++) {
-    BAR_HEIGTH[i] = Math.round(times[i] * MAX_BAR_HEIGHT / MAX_TIME);
+    const barHeight = Math.round(times[i] * MAX_BAR_HEIGHT / maxTime);
     ctx.fillStyle = '#000';
     ctx.fillText(players[i], FIRST_PLAYER_X + BAR_X_GAP * i, PLAYER_NAME_Y);
-    ctx.fillText(Math.round(times[i]), FIRST_PLAYER_X + BAR_X_GAP * i, TIMES_Y_WITHOUTBAR - BAR_HEIGTH[i]);
+    ctx.fillText(Math.round(times[i]), FIRST_PLAYER_X + BAR_X_GAP * i, TIMES_Y_WITHOUTBAR - barHeight);
     if (players[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = `hsl(240, ${Math.round(Math.random() * 100)}%, 50%)`;
     }
-    ctx.fillRect(FIRST_PLAYER_X + BAR_X_GAP * i, BAR_Y_BOTTOM - BAR_HEIGTH[i], BAR_WIDTH, BAR_HEIGTH[i]);
+    ctx.fillRect(FIRST_PLAYER_X + BAR_X_GAP * i, BAR_Y_BOTTOM - barHeight, BAR_WIDTH, barHeight);
   }
 };

@@ -1,11 +1,4 @@
-/* exported fireballSize */
-/* exported getFireballSpeed */
-/* exported wizardSpeed */
-/* exported getWizardHeight */
-/* exported getWizardX */
-/* exported getWizardY */
-
-"use strict";
+'use strict';
 
 const fireballSize = 22;
 const getFireballSpeed = (isMovingLeft) => isMovingLeft ? 2 : 5;
