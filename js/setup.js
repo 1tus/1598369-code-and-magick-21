@@ -113,18 +113,19 @@ userNameInput.addEventListener('input', () => {
 const wizard = document.querySelector('.setup-wizard-appearance');
 const wizardCoat = wizard.querySelector('.wizard-coat');
 const wizardEyes = wizard.querySelector('.wizard-eyes');
-const wizardInputs = wizard.querySelectorAll('input');
+const wizardCoatColorInput = wizard.querySelector('.coat-color-input');
+const wizardEyesColorInput = wizard.querySelector('.eyes-color-input');
 const wizardFireball = document.querySelector('.setup-fireball-wrap');
 const fireballInput = wizardFireball.querySelector('input');
 
 wizardCoat.addEventListener('click', () => {
   const coatColor = getRandomArrElement(WIZARD_COAT_COLORS);
-  wizardInputs[0].value = coatColor;
+  wizardCoatColorInput.value = coatColor;
   wizardCoat.style.fill = coatColor;
 });
 wizardEyes.addEventListener('click', () => {
   const eyesColor = getRandomArrElement(WIZARD_EYES_COLORS);
-  wizardInputs[1].value = eyesColor;
+  wizardEyesColorInput.value = eyesColor;
   wizardEyes.style.fill = eyesColor;
 });
 wizardFireball.addEventListener('click', () => {
