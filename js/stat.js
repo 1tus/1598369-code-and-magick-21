@@ -40,12 +40,12 @@
   };
 
   window.renderStatistics = (ctx, players, times) => {
-    renderCloud(ctx, CLOUD_X + CLOUD_GAP, CLOUD_Y + CLOUD_GAP, 'rgba(0, 0, 0, 0.7)');
-    renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
-    ctx.fillStyle = '#000';
-    ctx.font = '16px PT Mono';
-    ctx.fillText('Ура вы победили!', CLOUD_TEXT_X, CLOUD_TEXT_Y);
-    ctx.fillText('Список результатов:', CLOUD_TEXT_X, CLOUD_TEXT_Y + CLOUD_TEXT_HEIGHT);
+    renderCloud(ctx, CLOUD_X + CLOUD_GAP, CLOUD_Y + CLOUD_GAP, `rgba(0, 0, 0, 0.7)`);
+    renderCloud(ctx, CLOUD_X, CLOUD_Y, `#fff`);
+    ctx.fillStyle = `#000`;
+    ctx.font = `16px PT Mono`;
+    ctx.fillText(`Ура вы победили!`, CLOUD_TEXT_X, CLOUD_TEXT_Y);
+    ctx.fillText(`Список результатов:`, CLOUD_TEXT_X, CLOUD_TEXT_Y + CLOUD_TEXT_HEIGHT);
 
     const getMaxElement = (arr) => {
       if (arr.length === 0) {
@@ -65,11 +65,11 @@
 
     for (let i = 0; i < players.length; i++) {
       const barHeight = Math.round(times[i] * MAX_BAR_HEIGHT / maxTime);
-      ctx.fillStyle = '#000';
+      ctx.fillStyle = `#000`;
       ctx.fillText(players[i], FIRST_PLAYER_X + BAR_X_GAP * i, PLAYER_NAME_Y);
       ctx.fillText(Math.round(times[i]), FIRST_PLAYER_X + BAR_X_GAP * i, TIMES_Y_WITHOUTBAR - barHeight);
-      if (players[i] === 'Вы') {
-        ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+      if (players[i] === `Вы`) {
+        ctx.fillStyle = `rgba(255, 0, 0, 1)`;
       } else {
         ctx.fillStyle = `hsl(240, ${Math.round(Math.random() * 100)}%, 50%)`;
       }
