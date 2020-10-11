@@ -1,10 +1,10 @@
 'use strict';
 
 (function () {
-  const setupOpen = document.querySelector('.setup-open');
-  const setupDialogElement = document.querySelector('.setup');
-  const userDialog = document.querySelector('.setup');
-  const setupClose = userDialog.querySelector('.setup-close');
+  const setupOpen = document.querySelector(`.setup-open`);
+  const setupDialogElement = document.querySelector(`.setup`);
+  const userDialog = document.querySelector(`.setup`);
+  const setupClose = userDialog.querySelector(`.setup-close`);
   const defaultDialogPosition = {
     x: setupDialogElement.style.left,
     y: setupDialogElement.style.top
@@ -15,32 +15,32 @@
   };
   const openPopup = () => {
     resetDialog();
-    userDialog.classList.remove('hidden');
-    document.addEventListener('keydown', onPopupEscPress);
+    userDialog.classList.remove(`hidden`);
+    document.addEventListener(`keydown`, onPopupEscPress);
   };
   const onPopupEscPress = (evt) => {
-    if (evt.key === 'Escape') {
+    if (evt.key === `Escape`) {
       evt.preventDefault();
       closePopup();
     }
   };
   const closePopup = () => {
-    userDialog.classList.add('hidden');
-    document.removeEventListener('keydown', onPopupEscPress);
+    userDialog.classList.add(`hidden`);
+    document.removeEventListener(`keydown`, onPopupEscPress);
   };
-  setupOpen.addEventListener('click', () => {
+  setupOpen.addEventListener(`click`, () => {
     openPopup();
   });
-  setupOpen.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Enter') {
+  setupOpen.addEventListener(`keydown`, (evt) => {
+    if (evt.key === `Enter`) {
       openPopup();
     }
   });
-  setupClose.addEventListener('click', () => {
+  setupClose.addEventListener(`click`, () => {
     closePopup();
   });
-  setupClose.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Enter') {
+  setupClose.addEventListener(`keydown`, (evt) => {
+    if (evt.key === `Enter`) {
       closePopup();
     }
   });
