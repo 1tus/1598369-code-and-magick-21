@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   entry: [
     './js/backend.js',
+    './js/avatar.js',
     './js/data.js',
     './js/form.js',
     './js/stat.js',
